@@ -2,6 +2,7 @@ package java7;
 
 import com.sandwich.koan.Koan;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,16 +16,28 @@ public class AboutDiamondOperator {
     public void diamondOperator () {
         String[] animals = {"Dog", "Cat", "Tiger", "Elephant", "Zebra"};
         //Generic type of array list inferred - empty <> operator
-        List<String> animalsList = new ArrayList<>(Arrays.asList(animals));
-        assertEquals(animalsList, __);
+        List<String> animalsList = new ArrayList<String>(Arrays.asList(animals));
+        ArrayList<String> actual = new ArrayList<String>();
+        actual.add("Dog");
+        actual.add("Cat");
+        actual.add("Tiger");
+        actual.add("Elephant");
+        actual.add("Zebra");
+        assertEquals(animalsList, actual);
     }
 
     @Koan
     public void diamondOperatorInMethodCall () {
         String[] animals = {"Dog", "Cat", "Tiger", "Elephant", "Zebra"};
         //type of new ArrayList<>() inferred from method parameter
-        List<String> animalsList = fill(new ArrayList<>());
-        assertEquals(animalsList, __);
+        List<String> animalsList = fill(new ArrayList<String>());
+        ArrayList<String> actual = new ArrayList<String>();
+        actual.add("Dog");
+        actual.add("Cat");
+        actual.add("Tiger");
+        actual.add("Elephant");
+        actual.add("Zebra");
+        assertEquals(animalsList, actual);
     }
 
     private List<String> fill(List<String> list){
